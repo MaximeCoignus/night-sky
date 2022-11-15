@@ -1,3 +1,4 @@
+import { animate } from "./scrollDetector";
 import "./style.scss";
 
 document.querySelector("#app").innerHTML = `
@@ -12,4 +13,7 @@ document.querySelector("#app").innerHTML = `
   </div>
 `;
 
-setupCounter(document.querySelector("#counter"));
+window.onload = () => {
+  console.log("Page loaded!");
+  animate();
+};

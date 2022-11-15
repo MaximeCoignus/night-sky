@@ -68,6 +68,7 @@ html {
   background: transparent;
   box-shadow: create-stars1($numStars);
   animation: animStar $scrollSpeed linear infinite;
+  transition: height 0.5s;
   &:after {
     content: " ";
     top: -$starStartOffset;
@@ -88,6 +89,7 @@ html {
   background: transparent;
   box-shadow: create-stars2($numStars);
   animation: animStar $scrollSpeed linear infinite;
+  transition: height 0.5s;
   &:after {
     content: " ";
     top: -$starStartOffset;
@@ -108,6 +110,7 @@ html {
   background: transparent;
   box-shadow: create-stars3($numStars);
   animation: animStar $scrollSpeed linear infinite;
+  transition: height 0.5s;
   &:after {
     content: " ";
     top: -$starStartOffset;
