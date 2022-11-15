@@ -1,4 +1,7 @@
-$starFieldWidth: 2500;
+$starFieldWidth1: 2500;
+$starFieldWidth2: 3750;
+$starFieldWidth3: 5000;
+
 $starFieldHeight1: 2500;
 $starFieldHeight2: 3750;
 $starFieldHeight3: 5000;
@@ -31,28 +34,28 @@ html {
 }
 
 @function create-stars1($n) {
-  $stars: "#{random($starFieldWidth)}px #{random($starFieldHeight1)}px #FFF";
+  $stars: "#{random($starFieldWidth1)}px #{random($starFieldHeight1)}px #FFF";
 
   @for $i from 2 through $n {
-    $stars: "#{$stars} , #{random($starFieldWidth)}px #{random($starFieldHeight1)}px #FFF";
+    $stars: "#{$stars} , #{random($starFieldWidth1)}px #{random($starFieldHeight1)}px #FFF";
   }
   @return unquote($stars);
 }
 
 @function create-stars2($n) {
-  $stars: "#{random($starFieldWidth)}px #{random($starFieldHeight2)}px #FFF";
+  $stars: "#{random($starFieldWidth2)}px #{random($starFieldHeight2)}px #FFF";
 
   @for $i from 2 through $n {
-    $stars: "#{$stars} , #{random($starFieldWidth)}px #{random($starFieldHeight2)}px #FFF";
+    $stars: "#{$stars} , #{random($starFieldWidth2)}px #{random($starFieldHeight2)}px #FFF";
   }
   @return unquote($stars);
 }
 
 @function create-stars3($n) {
-  $stars: "#{random($starFieldWidth)}px #{random($starFieldHeight3)}px #FFF";
+  $stars: "#{random($starFieldWidth3)}px #{random($starFieldHeight3)}px #FFF";
 
   @for $i from 2 through $n {
-    $stars: "#{$stars} , #{random($starFieldWidth)}px #{random($starFieldHeight3)}px #FFF";
+    $stars: "#{$stars} , #{random($starFieldWidth3)}px #{random($starFieldHeight3)}px #FFF";
   }
   @return unquote($stars);
 }
@@ -133,6 +136,6 @@ html {
   }
   to {
     transform: translateY(-#{$starFieldHeight1}px)
-      translateX(-#{$starFieldWidth}px);
+      translateX(-#{$starFieldWidth1}px);
   }
 }
