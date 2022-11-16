@@ -57,7 +57,7 @@ window.onload = () => {
             stars2.style.height = "2px";
             stars3.style.height = "3px";
             timer = undefined;
-          }, 1);
+          }, 100);
         } else {
           if (!timer) {
             stars1.style.height = "1px";
