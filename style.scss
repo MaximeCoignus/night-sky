@@ -11,8 +11,8 @@ $starOneScrollDuration: 525s;
 $starTwoScrollDuration: 375s;
 $starThreeScrollDuration: 300s;
 $numStarOneStars: 2000;
-$numStarTwoStars: 1000;
-$numStarThreeStars: 300;
+$numStarTwoStars: 950;
+$numStarThreeStars: 350;
 
 html {
   height: 100%;
@@ -68,17 +68,6 @@ html {
   background: transparent;
   box-shadow: create-stars1($numStars);
   animation: animStar $scrollSpeed linear infinite;
-  transition: height 0.3s;
-  &:after {
-    content: " ";
-    top: -$starStartOffset;
-    width: $starSize;
-    height: $starSize;
-    border-radius: 50%;
-    position: absolute;
-    background: transparent;
-    box-shadow: create-stars($numStars);
-  }
 }
 
 @mixin star-template2($numStars, $starSize, $scrollSpeed) {
@@ -89,17 +78,6 @@ html {
   background: transparent;
   box-shadow: create-stars2($numStars);
   animation: animStar $scrollSpeed linear infinite;
-  transition: height 0.3s;
-  &:after {
-    content: " ";
-    top: -$starStartOffset;
-    width: $starSize;
-    height: $starSize;
-    border-radius: 50%;
-    position: absolute;
-    background: transparent;
-    box-shadow: create-stars($numStars);
-  }
 }
 
 @mixin star-template3($numStars, $starSize, $scrollSpeed) {
@@ -111,16 +89,6 @@ html {
   box-shadow: create-stars3($numStars);
   animation: animStar $scrollSpeed linear infinite;
   transition: height 0.3s;
-  &:after {
-    content: " ";
-    top: -$starStartOffset;
-    width: $starSize;
-    height: $starSize;
-    border-radius: 50%;
-    position: absolute;
-    background: transparent;
-    box-shadow: create-stars($numStars);
-  }
 }
 
 .stars {
