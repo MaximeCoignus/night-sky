@@ -1,18 +1,10 @@
-$starFieldWidth1: 2500;
-$starFieldWidth2: 3750;
-$starFieldWidth3: 2000;
-
-$starFieldHeight1: 2500;
-$starFieldHeight2: 3750;
-$starFieldHeight3: 5000;
+$starFieldWidth: 100;
+$starFieldHeight: 600;
 $starStartOffset: 600px;
 
-$starOneScrollDuration: 525s;
-$starTwoScrollDuration: 375s;
-$starThreeScrollDuration: 350s;
-$numStarOneStars: 2000;
-$numStarTwoStars: 1000;
-$numStarThreeStars: 300;
+$numStarOneStars: 100;
+$numStarTwoStars: 100;
+$numStarThreeStars: 100;
 
 html {
   height: 100%;
@@ -33,80 +25,31 @@ html {
   left: 0%;
 }
 
-@function create-stars1($n) {
-  $stars: "#{random($starFieldWidth1)}px #{random($starFieldHeight1)}px #FFF";
+@function create-stars($n) {
+  $stars: "#{random($starFieldWidth)}vw #{random($starFieldHeight)}vh #FFF";
 
   @for $i from 2 through $n {
-    $stars: "#{$stars} , #{random($starFieldWidth1)}px #{random($starFieldHeight1)}px #FFF";
+    $stars: "#{$stars} , #{random($starFieldWidth)}vw #{random($starFieldHeight)}vh #FFF";
   }
   @return unquote($stars);
 }
 
-@function create-stars2($n) {
-  $stars: "#{random($starFieldWidth2)}px #{random($starFieldHeight2)}px #FFF";
-
-  @for $i from 2 through $n {
-    $stars: "#{$stars} , #{random($starFieldWidth2)}px #{random($starFieldHeight2)}px #FFF";
-  }
-  @return unquote($stars);
-}
-
-@function create-stars3($n) {
-  $stars: "#{random($starFieldWidth3)}px #{random($starFieldHeight3)}px #FFF";
-
-  @for $i from 2 through $n {
-    $stars: "#{$stars} , #{random($starFieldWidth3)}px #{random($starFieldHeight3)}px #FFF";
-  }
-  @return unquote($stars);
-}
-
-@mixin star-template1($numStars, $starSize, $scrollSpeed) {
+@mixin star-template($numStars, $starSize) {
   z-index: 10;
   width: $starSize;
   height: $starSize;
   border-radius: 50%;
   background: transparent;
-  box-shadow: create-stars1($numStars);
-  animation: animStar $scrollSpeed linear infinite;
-}
-
-@mixin star-template2($numStars, $starSize, $scrollSpeed) {
-  z-index: 10;
-  width: $starSize;
-  height: $starSize;
-  border-radius: 50%;
-  background: transparent;
-  box-shadow: create-stars2($numStars);
-  animation: animStar $scrollSpeed linear infinite;
-}
-
-@mixin star-template3($numStars, $starSize, $scrollSpeed) {
-  z-index: 10;
-  width: $starSize;
-  height: $starSize;
-  border-radius: 50%;
-  background: transparent;
-  box-shadow: create-stars3($numStars);
-  animation: animStar $scrollSpeed linear infinite;
+  box-shadow: create-stars($numStars);
   transition: height 0.3s;
 }
 
 .stars {
-  @include star-template1($numStarOneStars, 1px, $starOneScrollDuration);
+  @include star-template($numStarOneStars, 1px);
 }
 .stars2 {
-  @include star-template2($numStarTwoStars, 2px, $starTwoScrollDuration);
+  @include star-template($numStarTwoStars, 2px);
 }
 .stars3 {
-  @include star-template3($numStarThreeStars, 3px, $starThreeScrollDuration);
-}
-
-@keyframes animStar {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-#{$starFieldHeight1}px)
-      translateX(-#{$starFieldWidth1}px);
-  }
+  @include star-template($numStarThreeStars, 3px);
 }

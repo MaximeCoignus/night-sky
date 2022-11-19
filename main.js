@@ -13,6 +13,8 @@ document.querySelector("#app").innerHTML = `
 `;
 
 window.onload = () => {
+  const stars1 = document.querySelector(".stars");
+  const stars2 = document.querySelector(".stars2");
   const stars3 = document.querySelector(".stars3");
 
   let scrolling = false;
@@ -42,6 +44,8 @@ window.onload = () => {
         if (Math.abs(window.scrollY - prior) > scrollSpeed) {
           const actualSpeed = Math.abs(window.scrollY - prior);
           if (actualSpeed <= 200) {
+            stars1.style.height = `${actualSpeed}px`;
+            stars2.style.height = `${actualSpeed}px`;
             stars3.style.height = `${actualSpeed}px`;
           }
           if (timer) {
@@ -49,11 +53,15 @@ window.onload = () => {
             timer = undefined;
           }
           timer = setTimeout(() => {
+            stars1.style.height = "1px";
+            stars2.style.height = "2px";
             stars3.style.height = "3px";
             timer = undefined;
           }, 50);
         } else {
           if (!timer) {
+            stars1.style.height = "1px";
+            stars2.style.height = "2px";
             stars3.style.height = "3px";
             scrolling = false;
           }
